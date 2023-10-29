@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body{
+            background-image : url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReDJ9ulXuspQlecYSSvt3um8rSSytCQYJEgg&usqp=CAU");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin-right: 200px;
+            } 
+            h1{
+                text-align: center;
+                position: relative;
+                margin-top: 60px;
+                margin-left: 100px;
+            }
+            
+        .EDIT{
+                height: 50px;
+                position: relative;
+                top: 50%;
+                left: 27%;
+                border-radius: 25px;
+                border: 1px solid black;
+                cursor: pointer;
+                background-color: rgb(240, 230, 225);
+                color: black;   
+            }
+            .EDIT:hover{
+                background-color: rgb(244, 183, 183);
+            }
+            .EDIT:active{
+                background-color: rgb(70, 26, 3);
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+            .DELETE{
+                height: 50px;
+                position: relative;
+                top: 50%;
+                left: 27%;
+                border-radius: 25px;
+                border: 1px solid black;
+                cursor: pointer;
+                background-color: rgb(240, 230, 225);
+                color: black;   
+            }
+            .DELETE:hover{
+                background-color: rgb(244, 183, 183);
+            }
+            .DELETE:active{
+                background-color: rgb(70, 26, 3);
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+            .BACK{
+                height: 50px;
+                position: relative;
+                top: 50%;
+                left: 27%;
+                border-radius: 25px;
+                border: 1px solid black;
+                cursor: pointer;
+                background-color: rgb(240, 230, 225);
+                color: black;   
+            }
+            .BACK:hover{
+                background-color: rgb(244, 183, 183);
+            }
+            .BACK:active{
+                background-color: rgb(70, 26, 3);
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+    </style>
+</head>
+<body><div class="container">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <a href="{{ url_for('edit_post', id=post.id) }}"><button class="EDIT"><b>EDIT</b></button></a>
+    <a href="{{ url_for('delete_post', id=post.id) }}"><button class="DELETE"><b>DELETE</b></button></a>
+    <a href="{{ url_for('home') }}"><button class="BACK"><b>Back to home</b></button></a>
+</div>
+</body>
+</html>

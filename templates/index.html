@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body{
+            background-image : url("https://img.freepik.com/free-photo/old-fashioned-flat-lay-with-letters-writing-accessories-dark-wooden-table_155003-3584.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin-right: 200px;
+            } 
+            h1{
+                text-align: center;
+                position: relative;
+                margin-top: 60px;
+                margin-left: 100px;
+            }
+            div.background {
+                background: url(klematis.jpg) repeat;
+            
+                /*border: 2px solid black;*/
+            }
+            div.transbox {
+                /*margin: 120px;
+                background-color: #ffffff;
+                border: 1px solid black;
+                opacity: 0.6;
+                padding: 10px  10px;
+                margin-left:30px;
+                margin-right: 100px;
+                padding: 60px;
+                border: 3px;*/
+                background-color: rgba(107, 60, 7, 0.356);
+                border: 1px solid black;
+                opacity: 0.6;
+                width: 300px;
+                height: 400px;
+                position: absolute;
+                top: 25%;
+                left: 35%;
+                
+            }
+            div.transbox p {
+                margin: 5%;
+                font-weight: bold;
+                color: #000000;
+            }
+            .CREATE{
+                height: 50px;
+                position: relative;
+                top: 50%;
+                left: 27%;
+                border-radius: 25px;
+                border: 1px solid black;
+                cursor: pointer;
+                background-color: rgb(240, 230, 225);
+                color: black;   
+            }
+            .CREATE:hover{
+                background-color: rgb(244, 183, 183);
+            }
+            .CREATE:active{
+                background-color: rgb(70, 26, 3);
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Blog</h1>
+   
+    <div class="background" >
+        <div class="transbox">
+            <p>blogs list</p>
+            <ul>
+                {% for post in posts %}
+                    <li><a href="{{ url_for('view_post', id=post.id) }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('create_post') }}" >
+                <button class="CREATE"><b>Create a New Post</b></button>
+            </a>
+        </div>
+      </div>
+    
+    
+</body>
+</html>
